@@ -13,3 +13,4 @@ class ProductPageLocators():
     BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
     PRICE_IN_SUCCESSFUL_ADD_TO_SHOPPING_CART_MESSAGE = (By.CSS_SELECTOR, "#messages p strong")
     BOOK_PRICE = (By.CSS_SELECTOR, ".product_main p.price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alertinner")

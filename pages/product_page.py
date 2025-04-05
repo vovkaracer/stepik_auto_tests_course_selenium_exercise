@@ -16,3 +16,10 @@ class ProductPage(BasePage):
     def should_be_correct_price_in_message(self):
         assert self.is_text_in_elements_equal(*ProductPageLocators.PRICE_IN_SUCCESSFUL_ADD_TO_SHOPPING_CART_MESSAGE, *ProductPageLocators.BOOK_PRICE), \
             "price on page is not the same price in message"
+        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "the success message present"
+
+    def should_disappear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "the success message does not disappear"
+        
