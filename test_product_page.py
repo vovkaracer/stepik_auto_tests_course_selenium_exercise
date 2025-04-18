@@ -13,7 +13,7 @@ class TestUserAddToBasketFromProductPage():
         email = str(time.time()) + "@test.org"
         password = "test112233"
         page.register_new_user(email, password)
-        time.sleep(1)
+        page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
