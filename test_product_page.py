@@ -21,6 +21,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_shopping_cart(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
         page = ProductPage(browser, link)
@@ -35,6 +36,21 @@ def test_guest_should_see_successful_add_to_shopping_cart_message(browser):
     page.add_to_shopping_cart()
     page.solve_quiz_and_get_code()
     page.should_be_successful_add_to_shopping_cart_message()
+
+@pytest.mark.need_review
+def test_guest_cant_see_success_message(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+
+@pytest.mark.need_review
+def test_guest_can_add_product_to_shopping_cart(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_shopping_cart()
+    page.solve_quiz_and_get_code()
 
 def test_guest_should_see_correct_product_name_in_message(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
@@ -83,7 +99,8 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
-def test_guest_can_go_to_login_link_from_product_page(browser):
+@pytest.mark.need_review
+def test_guest_can_go_to_login_page_from_product_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
     page = ProductPage(browser, link)
     page.open()
